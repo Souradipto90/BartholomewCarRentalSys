@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Review</title>
+    <link rel="stylesheet" href="review.css">
+</head>
+<body>
+
+    <!-- Popup Banner for Validation Errors -->
+    <div id="error-popup" class="popup hidden" role="alert">
+        <span id="popup-message">Error: Invalid input detected!</span>
+        <button id="close-popup" aria-label="Close error message">&times;</button>
+    </div>
+
+    <div class="container">
+        <!-- Initial Screen -->
+        <div id="step-1" class="card">
+            <h2>Your rental period ended. How satisfied are you ?</h2>
+            <p class="subtext">Please share your experience before closing your account session.</p>
+            <button id="give-rating-btn" class="btn primary-btn">Give Rating</button>
+        </div>
+
+        <!-- Main Review Form Screen -->
+        <div id="step-2" class="card hidden">
+            <h2>Submit Your Review</h2>
+            
+            <form id="review-form" novalidate>
+                <!-- 5 Star Rating Component -->
+                <div class="form-group">
+                    <label>Your Rating:</label>
+                    <div class="star-rating" role="radiogroup" aria-label="Star Rating">
+                        <span class="star" data-value="1" tabindex="0" role="button" aria-label="1 star out of 5">&#9733;</span>
+                        <span class="star" data-value="2" tabindex="0" role="button" aria-label="2 stars out of 5">&#9733;</span>
+                        <span class="star" data-value="3" tabindex="0" role="button" aria-label="3 stars out of 5">&#9733;</span>
+                        <span class="star" data-value="4" tabindex="0" role="button" aria-label="4 stars out of 5">&#9733;</span>
+                        <span class="star" data-value="5" tabindex="0" role="button" aria-label="5 stars out of 5">&#9733;</span>
+                    </div>
+                    <input type="hidden" id="rating-value" value="0">
+                </div>
+
+                <!-- Input Table / Data Fields -->
+                <div class="form-group">
+                    <label for="rental-id">Rental Reference Code:</label>
+                    <input type="text" id="rental-id" placeholder="e.g. RENT-9921">
+                </div>
+
+                <!-- Comment Section -->
+                <div class="form-group">
+                    <label for="comment">Add Comment:</label>
+                    <textarea id="comment" rows="4" placeholder="Type your review comments here..."></textarea>
+                </div>
+
+                <button type="submit" class="btn submit-btn">Submit Review</button>
+            </form>
+        </div>
+
+        <!-- Success Screen -->
+        <div id="step-success" class="card hidden">
+            <h2>Thank You!</h2>
+            <p>Your rating and review comments have been recorded successfully.</p>
+        </div>
+    </div>
+
+    <script src="review.js"></script>
+</body>
+</html>
